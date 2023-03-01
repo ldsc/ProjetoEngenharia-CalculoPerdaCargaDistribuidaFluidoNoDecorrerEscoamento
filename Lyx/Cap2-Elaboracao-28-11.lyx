@@ -1,0 +1,1886 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\maintain_unincluded_children false
+\language brazilian
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style apalike
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter
+\backslash
+space - Elaboração}  
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Elaboração
+\end_layout
+
+\begin_layout Standard
+Neste capítulo faremos a análise de domínio, identificação e diagrama de
+ pacotes.
+\end_layout
+
+\begin_layout Section
+Análise de domínio 
+\end_layout
+
+\begin_layout Standard
+O desenvolvimento deste software tem como área principal a mecânica dos
+ fluidos, sendo o ramo da mecânica que estuda o comportamento físico dos
+ fluidos e suas propriedades.
+ Os aspectos teóricos e práticos da mecânica dos fluidos são importantes
+ para a solução de diversos problemas encontrados na engenharia, sendo suas
+ principais aplicações destinadas ao estudo de escoamentos de líquidos e
+ gases, máquinas hidráulicas, aplicações de pneumática e hidráulica industrial,
+ entre outros.
+\end_layout
+
+\begin_layout Standard
+Outra área relacionada é a elevação e escoamento em engenharia de petróleo,
+ associado ao processo através do qual os líquidos produzidos por um reservatóri
+o são transportados do fundo do poço até a cabeça do poço e deste ponto
+ até a plataforma, na superfície.
+ 
+\end_layout
+
+\begin_layout Section
+Formulação teórica
+\end_layout
+
+\begin_layout Subsection
+Tipos de Escoamento 
+\end_layout
+
+\begin_layout Subsubsection
+• Escoamento Laminar: 
+\end_layout
+
+\begin_layout Standard
+Aquele em que as partículas de fluido deslocam-se em lâminas individualizadas
+ (camadas adjacentes de fluido movem-se paralelamente entre si), sem trocas
+ de massa entre elas.
+ 
+\end_layout
+
+\begin_layout Standard
+Exemplos: escoamento de água numa torneira pouco aberta, injeção de fluido
+ em reservatórios, etc.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+• Escoamento Turbulento: 
+\end_layout
+
+\begin_layout Standard
+Aquele em que as partículas apresentam um movimento caótico (aleatório)
+ macroscópico, isto é, a velocidade apresenta componentes transversais ao
+ movimento geral do fluido, e consequentes trocas de massa (transversais)
+ entre as partículas de fluido.
+ É o mais comum na natureza.
+\end_layout
+
+\begin_layout Standard
+Exemplos: água jorrando de uma torneira totalmente aberta, tubulações industriai
+s, fluxo de fluido em um meio poroso na região próxima ao poço produtor,
+ etc.
+ 
+\end_layout
+
+\begin_layout Subsection
+Perda de carga
+\end_layout
+
+\begin_layout Standard
+A perda de carga distribuída é aquela que ocorre ao longo de condutos retos
+ e de seção constante devido aos atritos no escoamento.
+ Ela será calculada utilizando a Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Darcy-Weibash"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+h\mathtt{f}=f(\frac{L}{D\mathtt{H}})v\text{²}\label{eq:Darcy-Weibash}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na qual 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+
+\begin_inset Formula $hf$
+\end_inset
+
+
+\begin_inset Formula $[m]$
+\end_inset
+
+ representa a perda de carga distribuida, 
+\begin_inset Formula $f$
+\end_inset
+
+ o fator de atrito, 
+\begin_inset Formula $L$
+\end_inset
+
+
+\begin_inset Formula $[m]$
+\end_inset
+
+ o comprimento da tubulação, 
+\begin_inset Formula $D\mathtt{H}[m]$
+\end_inset
+
+ o diâmetro hidráulico do tubo e 
+\begin_inset Formula $v$
+\end_inset
+
+
+\begin_inset Formula $[$
+\end_inset
+
+
+\begin_inset Formula $m²/s]$
+\end_inset
+
+ a velocidade média da seção.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Para o cálculo da perda de carga distribuida é necessário a utilização e
+ compreensão de conceitos que serão apresentados a seguir.
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Rugosidade 
+\begin_inset Formula $(\mathscr{E}$
+\end_inset
+
+
+\begin_inset Formula $[mm])$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Conjunto de irregularidades (asperezas) nas paredes internas dos condutos,
+ isto é, desvios de altura nas paredes internas devido às mesmas não serem
+ perfeitamente lisas, como representado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Tubp-com-rugosidade"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Listagens/Imagem_Rugosidade.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tubo com rugosidades
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Tubp-com-rugosidade"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A rugosidade gera dois efeitos no escoamento: 
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Gera perdas de carga devido ao atrito entre o fluido e as rugosidades.
+\end_layout
+
+\begin_layout Enumerate
+
+\lang english
+Favorece turbulências no escoamento devido às colisões das partículas de
+ fluido com as rugosidades, seguidas de movimentos transversais das partículas.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Nos cálculos do fator de atrito
+\begin_inset Formula $(f)$
+\end_inset
+
+ utilizaremos a rugosidade relativa que é a razão entre a rugosidade média
+ e o diâmetro do conduto representada pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Rugosidade Relativa"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+R\mathtt{DH}=\frac{\mathscr{E}}{D\mathtt{H}}\label{eq:Rugosidade Relativa}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Os materiais que compõem os tubos utilizados na indústria possuem rugosidade
+ co-nhecida, a Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Material-x-Rugosidade"
+
+\end_inset
+
+ representa a relação entre material e rugosidade.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Material x Rugosidade
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Material-x-Rugosidade"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+
+\lang english
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Tubo
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Rugosidade(mm)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aço rebitado (rebite)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4,5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Concreto (manilha)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1,5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Madeira
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,6
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ferro Fundido
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,26
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ferro galvanizado ou forjado (eletrólise)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,15
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Aço comercial ( Ferro + Carbono)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,046
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vidro, acrílico e PVC
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0,0 (liso)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\lang english
+Fator de atrito 
+\begin_inset Formula $(f)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+O fator de atrito é uma das formas de expressar a perda de carga distribuída
+ em termos de uma tensão de cisalhamento adimensional na parede do tubo.
+ É definido empiricamente de acordo com a Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Fator de Atrito"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset Formula 
+\begin{equation}
+f=\frac{\tau}{\frac{1}{8}v\text{²}\rho}\label{eq:Fator de Atrito}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+No qual 
+\begin_inset Formula $v$
+\end_inset
+
+
+\begin_inset Formula $[\frac{m}{s}]$
+\end_inset
+
+ é a velocidade média na seção, 
+\begin_inset Formula $\tau$
+\end_inset
+
+
+\begin_inset Formula $[$
+\end_inset
+
+
+\begin_inset Formula $\frac{kgf}{m\text{²}}]$
+\end_inset
+
+ é a tensão de cisalhamento na parede interna do tubo e 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\rho[\frac{kg}{m}]$
+\end_inset
+
+
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+ é a massa especifica do fluido.
+\end_layout
+
+\begin_layout Subsection
+Numero de Reynolds
+\end_layout
+
+\begin_layout Standard
+O número de Reynolds é adimensional e serve para classificar os escoamentos.
+ É dado pela combinação de um comprimento de escala 
+\begin_inset Formula $L[m\text{]}$
+\end_inset
+
+, da velocidade 
+\begin_inset Formula $v[m/s]$
+\end_inset
+
+, da viscosidade cinemática do fluido 
+\begin_inset Formula $V[\frac{m\text{²}}{s}]$
+\end_inset
+
+, viscosidade dinâmica 
+\begin_inset Formula $\mu[N.s/m\text{²]}$
+\end_inset
+
+, é representado de acordo com as Equações 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Numero de Reynolds- Viscosidade Cinemática"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Numero de Reynolds- Viscosidade Dinâmica"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Re=\frac{vL}{V}\label{eq:Numero de Reynolds- Viscosidade Cinemática}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Re=\frac{\rho vL}{\mu}\label{eq:Numero de Reynolds- Viscosidade Dinâmica}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Classificação Parede da Tubulação
+\end_layout
+
+\begin_layout Standard
+As paredes do tubo também possuem classificações de acordo com a Tabela
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Parede x Distribuição de Velocidades"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways true
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="5">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top">
+<column alignment="left" valignment="top" width="0pt">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Parede
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Limites
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Perfil 
+\begin_inset Formula $u(y)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hidraulicamente Lisa
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região da parede
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subcamada Visosa
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0\leq\frac{u_{t}.y}{v}\leq5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{u}{u_{t}}=\frac{u_{t}.y}{v}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zona intermediária
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $5\leq\frac{u_{t}.y}{v}\leq30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\frac{u}{u_{t}}=g(y)(só$
+\end_inset
+
+
+\begin_inset Formula $dados$
+\end_inset
+
+
+\begin_inset Formula $empiricos)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região Turbulenta
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $30\leq\frac{u_{t}.y}{v}$
+\end_inset
+
+e 
+\begin_inset Formula $\frac{y}{r_{0}}\leq0,15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\frac{u}{u_{t}}=2,44.ln(\frac{u_{t}.y}{v})+4,9$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hidraulicamente rugosa
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região da parede
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Subcamada Visosa
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{y}{r_{0}}\leq0,15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="3" alignment="left" valignment="middle" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\frac{u}{u_{t}}=2,44.ln(\frac{y}{\varepsilon})+8,5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Zona intermediária
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região Turbulenta
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell multirow="4" alignment="left" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Hidraulicamente lisa, rugosa (ou transição)
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="1" alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região externa à parede
+\end_layout
+
+\end_inset
+</cell>
+<cell multicolumn="2" alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $30\leq\frac{u_{t}.y}{v}$
+\end_inset
+
+e 
+\begin_inset Formula $\frac{y}{r_{0}}\leq1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+\begin_inset Formula $\frac{u_{MAX}-u}{u_{t}}=2,44.ln(\frac{r_{0}}{y})+0,8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabela Tipo de Parede da Tubulação
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Parede x Distribuição de Velocidades"
+
+\end_inset
+
+ e Distribuição das velocidades [APOSTILA DE MECÂNICA DOS FLUIDOS PARA O
+ CURSO DE ENGENHARIA DE EXPLORAÇÃO E PRODUÇÃO DE PETRÓLEO] 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Diagrama de Moody-Rouse
+\end_layout
+
+\begin_layout Standard
+O diagrama de Moody-Rouse é um diagrama empírico que relaciona o fator de
+ atrito com o número de Reynolds do escoamento e a rugosidade relativa do
+ conduto.
+ Este diagrama é aplicado em escoamentos nas mesmas condições da Figura
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Darcy-Weibash"
+
+\end_inset
+
+ e também a outras geometrias dos condutos fazendo-se uso do diâmetro hidráulico.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Listagens/Diagrama_de_Moody-Rouse_em_escala_logarítmica.png
+	width 100text%
+	height 60theight%
+	rotateAngle 90
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Moody-Rouse
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-Moody-Rouse"
+
+\end_inset
+
+[APOSTILA DE MECÂNICA DOS FLUIDOS PARA O CURSO DE ENGENHARIA DE EXPLORAÇÃO
+ E PRODUÇÃO DE PETRÓLEO]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Sintese teoria 
+\end_layout
+
+\begin_layout Standard
+\align left
+A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Análises-fisicas-do-Diagrama-de-Moody-Rouse"
+
+\end_inset
+
+ representa as equações do fator de atrito de acordo com o tipo de escoamento
+ e numero de Reynolds.
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Análises fisicas do Diagrama de Moody
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Análises-fisicas-do-Diagrama-de-Moody-Rouse"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="4">
+<features tabularvalignment="middle">
+<column alignment="left" valignment="top" width="1.1cm">
+<column alignment="left" valignment="top" width="3.5cm">
+<column alignment="left" valignment="top" width="6cm">
+<column alignment="center" valignment="top" width="5cm">
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Região
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Nº de Reynolds
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Descrição
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Equação
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Re<2000$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+(Laminar)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Forças viscosas (cisalhamento) elevadas em relação às demais, exercendo
+ impacto bem maior que a rugosidade para as perdas de carga.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f=\frac{64}{Re}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+II
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2000<Re<4000$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+(Transição)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Forças viscosas ora elevadas, ora desprezíveis em relação às demais, exercendo
+ impacto ora maior, ora menor que a rugosidade para as perdas de carga.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Faltam dados empíricos
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+III
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Re>4000$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+(Turbulento.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Hid.
+ liso)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Forças viscosas significativas, sendo a rugosidade da parede coberta pela
+ SCLL, com contribuição da rugosidade desprezível para as perdas de carga.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{\sqrt{f}}=0,86.ln($
+\end_inset
+
+
+\begin_inset Formula $Re.\sqrt{f})-0,8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+IV
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Re>4000$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+(Turbulento.
+ Transição)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+A rugosidade é comparável à SCLL, contribuindo para as perdas de carga.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-
+\begin_inset Formula $\frac{1}{\sqrt{f}}=0,86ln(\frac{\mathcal{E}}{3,7.D_{H}}+\frac{2,51}{Re.\sqrt{f}})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+V
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $Re>>4000$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Plain Layout
+(Turbulento.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+Hid.
+ rugoso)
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Forças viscosas desprezíveis em relação às demais, e a rugosidade ultrapassa
+ totalmente a SCLL contribuindo fortemente para as perdas de carga.
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\frac{1}{\sqrt{f}}=-0,86.ln($
+\end_inset
+
+
+\begin_inset Formula $\frac{\mathcal{E}}{3,7.D_{H}})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+[Fonte: APOSTILA DE MECÂNICA DOS FLUIDOS PARA O CURSO DE ENGENHARIA DE EXPLORAÇÃ
+O E PRODUÇÃO DE PETRÓLEO] 
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\SpecialChar softhyphen
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Identificação de pacotes – assuntos
+\end_layout
+
+\begin_layout Itemize
+Banco de Dados: Pacote que armazena e modifica unidades dos dados dos fluidos,
+ materiais e escoamento.
+ Possui métodos para gravar e ler dados em disco, além de mostrar em tela
+ para o usuário.
+ 
+\end_layout
+
+\begin_layout Itemize
+Simulação: Gerencia a simulação.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de pacotes – assuntos
+\end_layout
+
+\begin_layout Standard
+O diagrama de pacotes da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Diagrama-de-Pacotes"
+
+\end_inset
+
+ mostra a relação entre os diferentes pacotes do software desenvolvido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename Listagens/diagrama de Pacotes.png
+	width 100text%
+	height 50theight%
+	scaleBeforeRotation
+	rotateAngle 360
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de Pacotes
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diagrama-de-Pacotes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

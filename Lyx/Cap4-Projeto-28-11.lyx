@@ -1,0 +1,611 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass extbook
+\begin_preamble
+\usepackage {graphicx}
+\usepackage {longtable}
+\usepackage {indentfirst}
+\renewenvironment{center}{\par\centering}{\par}
+
+% Comentar linhas abaixo se não estiver usando pacote abntex
+% ou se o pacote ainda não foi instalado.
+% neste caso sugere-se usar citações no padrão apalike (lembra o da anbt).
+%\usepackage[alf ,abnt-etal-cite=2 , abnt-year-extra-label=yes , abnt-etal-list=0]{abntcite}
+%\usepackage {helvet}
+%\renewcommand {\familydefault}{\sfdefault}
+
+% Para uso de listagens de código
+\usepackage{color}
+\definecolor{azulclaro}{rgb}{0.6,1,1}%   rgb color model
+% Informa que vai usar o pacote listings, 
+% disponibilizado em /usr/share/texmf/doc/latex/styles/listings.dvi
+\usepackage{listings}
+\end_preamble
+\use_default_options false
+\master DocumentoMestre-Trabalho-ProgramacaoPratica.lyx
+\maintain_unincluded_children false
+\language brazilian
+\language_package auto
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement p
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Índice
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 210mm
+\paperheight 297mm
+\leftmargin 30mm
+\topmargin 25mm
+\rightmargin 20mm
+\bottommargin 20mm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Projeto 
+\begin_inset CommandInset label
+LatexCommand label
+name "chap:Projeto-do-Sistema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+lhead{
+\backslash
+thechapter - Projeto} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste capítulo do projeto de engenharia veremos questões associadas ao projeto
+ do sistema, incluindo protocolos, recursos, plataformas suportadas, implicações
+ nos diagramas feitos anteriormente, diagramas de componentes e implantação.
+ Na segunda parte revisamos os diagramas levando em conta as decisões do
+ projeto do sistema.
+\end_layout
+
+\begin_layout Section
+Projeto do sistema
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Projeto do sistema
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-do-sistema"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Protocolos
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Protocolos
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O software terá entrada de dados importando arquivos no formato ASCII com
+ extensão .txt e receberá dados via teclado.
+\end_layout
+
+\begin_layout Itemize
+A interface utilizada será em modo texto.
+\end_layout
+
+\begin_layout Itemize
+O software irá gerar saída de arquivos no formato ASCII com extensão no
+ .txt.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Recursos
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Recursos
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Identificação e alocação dos recursos globais, como os recursos do sistema
+ serão alocados, utilizados, compartilhados e liberados.
+ Implicam modificações no diagrama de componentes.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Neste projeto o programa irá necessitar de utilizar os componentes internos
+ do computador, como por exemplo HD, processador, mouse, teclado.
+\end_layout
+
+\begin_layout Itemize
+Neste projeto será utilizado uma tabela material vs rugosidade, como banco
+ de dados para o software.
+\end_layout
+
+\begin_layout Itemize
+Neste projeto será utilizado duas tabelas para conversão de unidades, na
+ qual uma contem unidades no sistema internacional (SI) e a segunda unidades
+ mais utilizadas pelos usuários.
+\end_layout
+
+\begin_layout Itemize
+Neste projeto não se aplica sistemas de armazenamento em massa.
+\end_layout
+
+\begin_layout Itemize
+Os gráficos serão gerados no programa externo Gnuplot.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Controle
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Controle
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Neste projeto o controle será sequencial.
+\end_layout
+
+\begin_layout Itemize
+Não há necessidade de otimização.
+ Pois, o software e seus componentes trabalham com dados pequenos.
+\end_layout
+
+\begin_layout Itemize
+Identificação e definição de 
+\emph on
+loops
+\emph default
+ de controle e das escalas de tempo.
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Não se aplica.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Plataformas
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Plataformas
+\end_layout
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+O software irá funcionar nos sistemas operacionais Windows e GNU/Linux,
+ sendo desenvolvido no GNU/Linux, Ubunto, e testado no Windows e GNU/Linux.
+\end_layout
+
+\begin_layout Itemize
+A linguagem de programação utilizada é C++.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Padrões de projeto
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Normalmente os padrões de projeto são identificados e passam a fazer parte
+ de uma biblioteca de padrões da empresa.
+ Mas isto só ocorre após a realização de diversos projetos.
+ 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Não se aplica.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Section
+Projeto orientado a objeto – POO
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+POO
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Projeto orientado a objeto
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Projeto-orientado-a-objeto"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Efeitos do projeto no modelo
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+modelo
+\end_layout
+
+\end_inset
+
+ estrutural
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Efeito-do-projeto-no-modelo-estrutural"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Neste projeto foram utilizadas as seguintes bibliotecas
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\family typewriter
+string
+\family default
+, para utilização de palavras.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+map
+\family default
+, para criar uma associação entre key e correspondente.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+vector
+\family default
+, para utilização de vetores contendo dados.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+fstream
+\family default
+, utilizado para gravar e ler arquivos de disco.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+<cmath>
+\family default
+, utilizada para realizar calculos que precisem de funções especificas.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+iostream
+\family default
+, para entrada e saida de dados, pelo teclado e tela respectivamente.
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+iomanip
+\family default
+, para utilização de ferramentas de formatação do layout de tabelas.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Novas classes e associações oriundas das bibliotecas selecionadas e da linguagem
+ escolhida devem ser acrescentadas ao modelo.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Após a análise e o projeto do sistema surgiu a necessidade da criação de
+ novas classes e associações.
+ Problemas como esse poderão surgir durante a implementação do banco de
+ dados, sendo assim passível de modicação ou criação de novas classes, atributos
+ e métodos.
+\end_layout
+
+\end_deeper
+\begin_layout Subsubsection
+Efeitos do projeto nas associações
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Efeitos do projeto nas associações
+\end_layout
+
+\end_inset
+
+
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Associações
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Neste projeto o usuário acessa o arquivo material .txt oferecendo a chave,
+ nome do material, e esse arquivo retorna o valor da rugosidade média do
+ material oferecido.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Diagrama de componentes
+\begin_inset Index idx
+status collapsed
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Diagrama-de-componentes"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neste projeto temos as classes CTubo, CFluido, CConversaoUnidades, CSimuladorPer
+daCargaDistribuida e geram objetos respectivos de cada classe.
+ 
+\end_layout
+
+\begin_layout Standard
+A classe CConversaoUnidades depende dos objetos da classe CTubo e CFluido,
+ da mesma forma que a classe CSimuladorPerdaCargaDistribuida depende dos
+ objetos criados pela classe CConversaoUnidades.
+ 
+\end_layout
+
+\begin_layout Standard
+O simulador é o que faz a junção entre os objetos da classe CTubo, CFluido
+ e resultados matemáticos.
+ Assim como está representado na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cap:Diagrama-de-componentes"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Listagens/Diagrama-Componentes.png
+	lyxscale 90
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Diagrama de componentes
+\begin_inset CommandInset label
+LatexCommand label
+name "cap:Diagrama-de-componentes"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

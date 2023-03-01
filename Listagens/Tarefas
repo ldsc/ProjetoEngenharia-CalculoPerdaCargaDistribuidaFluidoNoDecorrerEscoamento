@@ -1,0 +1,46 @@
+0- Fazer correções anotadas no documento impresso
+
+1- Criar makefile, automatizando a compilação
+ver capítulo makefile
+
+2- A tabela MaterialxRugosidade pode ter uma extensão como ex: .trm
+aí quando roda o programa e pede o nome da tabela você imediatamente antes lista os arquivos com extensão .trm
+system("ls *.trm");
+completar a tabela com dezenas de exemplos reais, senão fica inutil.
+
+3- tirar enters extras
+
+4- Corrigir saida N.s/m2 
+N*s/m2
+
+5- o certo é fazer o calculo sem pedir pro usuário olha o gráfico.
+se for pedir, pedir direito!
+5.1 Mostra o gráfico da figura, mostra as opçÕes
+5.2 O usuário digita a opção escolhida após olhar o gráfico: 
+I, II, III, IV, V
+
+system("display nomeImagem.png");
+
+ver na apostila biblioteca  Magick++
+Listing 50.2: Magick++: Atribuição e zoom.
+1275 # include <Magick ++.h>
+1276 # include <iostream >
+1277 using namespace std;
+1278 using namespace Magick ;
+1279 int main (int argc , char ** argv )
+1280 {
+1281 Image input (" input . png "); // Cria imagem
+1282 Image output = input ; // Cria cópia
+1283 output . zoom (" 640 x480 "); // Aplica zoom
+1284 output . write (" output2 -640 x480 . png"); // Salva imagem no disco
+1285 output . display (); // Mostra imagem usando display
+1286 return 0;
+1287 }
+
+6- o ideal é usar procedimentos de calculo numérico para calcular o f.
+métodos iterativos.
+
+7- documentar todo o código e gerar documentação html
+ver capítulo do doxygen
+
+

@@ -1,0 +1,6 @@
+DiametroHidraulico m cm 0.01
+L m cm 0.01
+VelocidadeFluido m/s cm/s 0.01
+MassaEspecifica kg/m3 g/cm3 0.001
+ViscosidadeDinamica N*s/m2 dina*s/cm2 0.1
+ViscosidadeCinematica m2/s cm2/s 0.0001
